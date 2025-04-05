@@ -3,109 +3,1061 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giulia & Daniele</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-elegant {
-            animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-        }
-
-        .gradient-text {
-            background: linear-gradient(45deg, #fff8f5, #ffffff, #fff8f5);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            background-size: 300% 300%;
-            animation: gradient-shift 8s ease infinite;
-        }
-
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .bg-image {
-            background-image: url('coming_soon.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        .bg-overlay {
-            background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 65%, rgba(0,0,0,0.9) 100%);
-        }
-    </style>
+    <title>Giulia & Daniele - Ci Sposiamo!</title>
+    <meta name="description" content="Ebbene sì, ci sposiamo! E non vediamo l'ora di condividere con te questo evento!">
+    <meta property="og:site_name" content="Giulia & Daniele">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://giulia-e-daniele.github.io/wedding/">
+    <meta property="og:title" content="Giulia & Daniele - Ci Sposiamo!">
+    <meta property="og:description" content="Ebbene sì, ci sposiamo! E non vediamo l'ora di condividere con te questo evento!">
+    <meta property="og:image" content="https://giulia-e-daniele.github.io/wedding/assets/imgs/2023.07.08_1.jpg">
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="682">
+    <meta property="og:image:height" content="682">
+    <meta property="og:image:alt" content="Foto_Giulia_e_Daniele">
+    <!---------------------------- Favicon ---------------------------->
+    <link rel="shortcut icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+    <!---------------------------- CSS ---------------------------->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-    <div class="bg-image h-screen w-full fixed">
-        <div class="bg-overlay h-full w-full flex items-end justify-center pb-8 md:pb-16">
-            <div class="text-center px-4 max-w-4xl w-full">
-                <!-- Nomi -->
-                <div class="names-text text-white text-4xl md:text-5xl font-light mb-2 opacity-0 animate-elegant tracking-widest font-serif">
-                    Giulia & Daniele
+
+<body class="font-['Montserrat'] bg-light-beige text-gray-personal">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full bg-white/70 backdrop-blur-sm z-50 shadow-sm transform">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#home" class="font-['Playfair_Display'] text-2xl font-bold js-navbar-text">
+                    G<span class="text-primary font-bold">&</span>D
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="js-navbar-text hover:text-primary transition-colors duration-300">Home</a>
+                    <a href="#wedding-details" class="js-navbar-text hover:text-primary transition-colors duration-300">Informazioni</a>
+                    <a href="#love-story" class="js-navbar-text hover:text-primary transition-colors duration-300">La nostra storia</a>
+                    <a href="#rsvp" class="js-navbar-text hover:text-primary transition-colors duration-300">RSVP</a>
+                    <a href="#honeymoon" class="js-navbar-text hover:text-primary transition-colors duration-300">Viaggio di Nozze</a>
+                    <a href="#wedding-gift" class="js-navbar-text hover:text-primary transition-colors duration-300">Regalo di Nozze</a>
                 </div>
 
-                <!-- Data -->
-                <div class="text-white text-xl md:text-2xl mb-8 opacity-0 animate-elegant animation-delay-200 font-serif">
-                    4 Settembre 2025
+                <!-- Mobile Hamburger -->
+                <button 
+                    id="hamburger" 
+                    class="md:hidden space-y-1.5"
+                    aria-label="Menu mobile"
+                >
+                    <span class="js-navbar-icon hamburger-line block w-6 h-0.5 bg-gray-personal"></span>
+                    <span class="js-navbar-icon hamburger-line block w-6 h-0.5 bg-gray-personal"></span>
+                    <span class="js-navbar-icon hamburger-line block w-6 h-0.5 bg-gray-personal"></span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div 
+                id="mobile-menu"
+                class="hidden md:hidden fixed top-[var(--nav-height)] left-0 w-full bg-white backdrop-blur-lg transition-all duration-300 opacity-0 overflow-y-auto"
+            >
+                <div class="flex flex-col items-center justify-center min-h-full space-y-8 py-4 text-2xl text-primary">
+                    <a href="#home">Home</a>
+                    <a href="#wedding-details">Informazioni</a>
+                    <a href="#love-story">La nostra storia</a>
+                    <a href="#rsvp">RSVP</a>
+                    <a href="#honeymoon">Viaggio di Nozze</a>
+                    <a href="#wedding-gift">Regalo di Nozze</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!---------------------------------------------------------------------------------------------------------->
+    <!-- SECTION: Header --------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------->
+    <section id="home" class="relative h-[120vh] flex items-center justify-center">
+        <div id="home-bg" class="absolute inset-0" style="background: url('./assets/imgs/2024.09.15_5.jpg') top center / cover no-repeat fixed">
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <div id="home-text" class="relative text-center text-white px-4" data-aos="fade-up" data-aos-once="false">
+            <p class="text-xl md:text-2xl mb-4">Ebbene sì... Ci sposiamo!</p>
+            <h1 class="font-['Playfair_Display'] text-6xl md:text-6xl mb-4 uppercase">Giulia</h1>
+            <h1 class="font-['Playfair_Display'] text-primary text-6xl md:text-6xl mb-4 font-bold">&</h1>
+            <h1 class="font-['Playfair_Display'] text-6xl md:text-6xl mb-4 uppercase">Daniele</h1>
+            <p class="text-xl md:text-2xl">(04.09.2025)</p>
+        </div>
+        <!-- <div class="absolute -bottom-px w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><g transform="scale(1,-1)" transform-origin="50%"><path d="M0 0v4s250 96 500 96 500-96 500-96V0H0Z" fill="#FFFFFF"></path></g></svg>
+        </div> -->
+
+        <!-- TEST -->
+        <div class="absolute -bottom-px w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 300">
+                <path d="M 0 200 Q 500 350 850 200 Q 810 175 800 150 A 50 50 0 1 1 900 100 A 50 50 0 1 1 1000 150 Q 990 175 950 200 Q 1300 350 1800 200 L 1800 350 L 0 350 Z" fill="#FFFFFF"></path>
+            </svg>
+        </div>
+    </section>
+
+    
+    
+    <!---------------------------------------------------------------------------------------------------------->
+    <!-- SECTION: Wedding Details ------------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------------->
+    <section id="wedding-details" class="py-20 px-6 bg-white">
+        <div class="container mx-auto max-w-4xl mb-8">
+            <img src="assets/icons/svg_1.svg" alt="svg_1" class="w-1/2 md:w-48 mb-4 mx-auto text-center filter-primary" data-aos="fade-up" data-aos-once="false">
+        </div>
+        <div class="container mx-auto max-w-4xl mb-8">
+            <h2 class="font-['Playfair_Display'] text-3xl text-center mb-4 font-bold" data-aos="fade-up" data-aos-once="false">Giovedì<br>4 Settembre 2025</h2>
+            <p class="text-primary text-center uppercase" data-aos="fade-up" data-aos-once="false">Sei invitato al nostro matrimonio</p>
+        </div>
+
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="font-['Playfair_Display'] text-3xl text-center mb-16" data-aos="fade-up" data-aos-once="false">Giulia <span class="text-primary">&</span> Daniele</h2>
+
+            <!-- Ceremony -->
+            <div class="relative text-center mb-8" data-aos="fade-up" data-aos-once="false">
+                <p class="font-light mb-4">Cerimonia</p>
+                <h2 class="text-3xl font-bold mb-4">11.00</h2>
+                <p class="font-light">Basilica Prepositurale di San Nicolò</p>
+                <p class="font-light mb-4">Vicolo Canonica, 4, 23900 Lecco LC</p>
+                <p>
+                    <a href="https://maps.app.goo.gl/3Gpe7G1KxcXpZPBg6" class="border-b border-primary">
+                        Indicazioni<i class="fas fa-map-marker-alt ml-2 text-lg"></i>
+                    </a>
+                </p>
+            </div>
+
+            <div class="border-b border-gray-personal w-2/3 md:w-1/4 mx-auto mb-8"  data-aos="fade-up" data-aos-once="false"></div>
+
+            <!-- Reception -->
+            <div class="relative text-center" data-aos="fade-up" data-aos-once="false">
+                <div class="mb-16">
+                    <p class="text-center font-light mb-4">Ricevimento</p>
+                    <h2 class="text-center text-3xl font-bold mb-4">13.00</h2>
+                    <p class="text-center font-light">Villa Mattioli</p>
+                    <p class="text-center font-light mb-4">Via Rapazzini, 2, 20855 Lesmo MB</p>
+                    <p class="text-center">
+                        <a href="https://maps.app.goo.gl/SsXA2hW2nEG3Coqg8" class="border-b border-primary">
+                            Indicazioni<i class="fas fa-map-marker-alt ml-2 text-lg"></i>
+                        </a>
+                    </p>
                 </div>
 
-                <!-- Countdown -->
-                <div class="grid grid-cols-4 gap-2 md:gap-4 text-white opacity-0 animate-elegant animation-delay-400 mx-auto max-w-lg">
-                    <div class="p-2 md:p-4">
-                        <div class="text-3xl md:text-4xl font-thin" id="days">00</div>
-                        <div class="text-xs md:text-sm tracking-widest">GIORNI</div>
-                    </div>
-                    <div class="p-2 md:p-4">
-                        <div class="text-3xl md:text-4xl font-thin" id="hours">00</div>
-                        <div class="text-xs md:text-sm tracking-widest">ORE</div>
-                    </div>
-                    <div class="p-2 md:p-4">
-                        <div class="text-3xl md:text-4xl font-thin" id="minutes">00</div>
-                        <div class="text-xs md:text-sm tracking-widest">MIN</div>
-                    </div>
-                    <div class="p-2 md:p-4">
-                        <div class="text-3xl md:text-4xl font-thin" id="seconds">00</div>
-                        <div class="text-xs md:text-sm tracking-widest">SEC</div>
+                <div class="md:w-1/2 mx-auto">
+                    <a href="#rsvp" id="btn-rsvp" class="button-primary inline-block bg-primary px-8 py-2 active:bg-primary-hover transition-all text-white tracking-widest w-full">
+                        RSVP
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!---------------------------------------------------------------------------------------------------------->
+    <!-- SECTION: Citation ------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------->
+    <section id="citation" class="py-40 xl:py-80 bg-light-beige relative text-center">
+        <div class="absolute -top-px w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><g transform-origin="50%"><path d="M0 0v4s250 96 500 96 500-96 500-96V0H0Z" fill="#FFFFFF"></path></g></svg>
+        </div>
+        <div class="container mx-auto max-w-4xl mb-8">
+            <img src="assets/icons/svg_1.svg" alt="svg_1" class="w-1/2 md:w-48 mb-4 mx-auto filter-primary" data-aos="fade-up" data-aos-once="false">
+        </div>
+
+        <div class="container whitespace-pre-line mx-auto max-w-4xl px-4" data-aos="fade-up" data-aos-once="false">
+            <h5 class="font-['Playfair_Display'] text-2xl">“I wanna be with you for the rest of my days
+                I promise I'll love you
+                Forever and ever and always”</h5>
+            <p class="text-primary">- Ryan Mack -</p>
+        </div>
+        <div class="absolute -bottom-px w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><g transform="scale(1,-1)" transform-origin="50%"><path d="M0 0v4s250 96 500 96 500-96 500-96V0H0Z" fill="#FFFFFF"></path></g></svg>
+        </div>
+    </section>
+    
+    
+    
+
+    <!---------------------------------------------------------------------------------------------------------->
+    <!-- SECTION: Timeline ------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------->
+    <section id="love-story" class="pt-20 px-6 bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="font-['Playfair_Display'] text-3xl capitalize text-center mb-16" data-aos="fade-up" data-aos-once="false">La nostra storia</h2>
+            
+            <!-- Timeline Item -->
+            <div class="relative pl-8 border-l-2 border-primary">
+
+                <!-- 1 -->
+                <div class="relative mb-8">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-1" data-aos="fade-right" data-aos-once="false">
+                            <h3 class="text-2xl my-2">L'inizio di tutto...</h3>
+                        </div>
+                        <div class="flex-1" data-aos="fade-right" data-aos-once="false">
+                            <div class="polaroid -rotate-2">
+                                <div class="polaroid-container">
+                                <img src="./assets/imgs/2018.12.12.jpg" alt="Il primo Natale" class="polaroid-img">
+                                </div>
+                                <p class="polaroid-text">2018</p>
+                                <p class="polaroid-text uppercase">Il primo Natale</p>
+                            </div>
+                        </div>
+                        <div class="flex-1" data-aos="fade-up" data-aos-once="false">
+                            <div class="polaroid rotate-2">
+                                <div class="polaroid-container">
+                                  <img src="./assets/imgs/2018.12.31.jpg" alt="Il primo capodanno" class="polaroid-img">
+                                </div>
+                                <p class="polaroid-text">2018</p>
+                                <p class="polaroid-text uppercase">Il primo capodanno</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Citazione -->
-                <p class="text-white text-lg md:text-xl mt-8 opacity-0 animate-elegant animation-delay-600 font-serif italic">
-                    "L'attesa rende ogni cosa più preziosa"
+                <!-- 2 -->
+                <div class="relative mb-8">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-1" data-aos="fade-right" data-aos-once="false">
+                            <h3 class="text-2xl my-2">Sempre insieme...</h3>
+                        </div>
+                        <div class="flex-1" data-aos="fade-right" data-aos-once="false">
+                            <div class="polaroid -rotate-2">
+                                <div class="polaroid-container">
+                                  <img src="./assets/imgs/2020.12.31.jpg" alt="Post lockdown" class="polaroid-img object-[center_top]">
+                                </div>
+                                <p class="polaroid-text">2020</p>
+                                <p class="polaroid-text uppercase">Post lockdown</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="relative  mb-8">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-1"  data-aos="fade-right" data-aos-once="false">
+                            <h3 class="text-2xl my-2">I traguardi...</h3>
+                        </div>
+                        <div class="flex-1" data-aos="fade-right" data-aos-once="false">
+                            <div class="polaroid rotate-2">
+                                <div class="polaroid-container">
+                                  <img src="./assets/imgs/2021.06.08.jpg" alt="Laurea Giulia" class="polaroid-img">
+                                </div>
+                                <p class="polaroid-text">2021</p>
+                                <p class="polaroid-text uppercase">La Laurea</p>
+                            </div>
+                        </div>
+                        <div class="flex-1" data-aos="fade-up" data-aos-once="false">
+                            <div class="polaroid -rotate-2">
+                                <div class="polaroid-container">
+                                  <img src="./assets/imgs/2022.04.12_3.jpg" alt="Laurea Daniele" class="polaroid-img">
+                                </div>
+                                <p class="polaroid-text">2022</p>
+                                <p class="polaroid-text uppercase">La Laurea</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="relative  mb-8">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-1"  data-aos="fade-right" data-aos-once="false">
+                            <h3 class="text-2xl my-2">La convivenza...</h3>
+                        </div>
+                        <div class="flex-1" data-aos="fade-right" data-aos-once="false">
+                            <div class="polaroid rotate-2">
+                                <div class="polaroid-container">
+                                  <img src="./assets/imgs/2023.02.16.jpg" alt="Brescia" class="polaroid-img">
+                                </div>
+                                <p class="polaroid-text">2021 - 2023</p>
+                                <p class="polaroid-text uppercase">Brescia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="relative  mb-8">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="flex-1"  data-aos="fade-right" data-aos-once="false">
+                            <h3 class="text-2xl my-2">Le passioni in comune...</h3>
+                        </div>
+                        <div class="flex-1" data-aos="fade-right" data-aos-once="false">
+                            <div class="polaroid -rotate-2">
+                                <div class="polaroid-container">
+                                  <img src="./assets/imgs/2021.08.23.jpg" alt="Cibo" class="polaroid-img">
+                                </div>
+                                <p class="polaroid-text">2021</p>
+                                <p class="polaroid-text uppercase">Cavallino</p>
+                            </div>
+                        </div>
+                        <div class="flex-1" data-aos="fade-up" data-aos-once="false">
+                            <div class="polaroid rotate-2">
+                                <div class="polaroid-container">
+                                  <img src="./assets/imgs/2022.12.12.jpg" alt="Ballo del Ceppo" class="polaroid-img">
+                                </div>
+                                <p class="polaroid-text">2022</p>
+                                <p class="polaroid-text uppercase">Ballo del Ceppo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
+            <div class="container mx-auto max-w-4xl flex flex-col items-center justify-center gap-4 mt-12" data-aos="fade-up" data-aos-once="false">
+                <p class="text-3xl text-center mb-4">E ora...</p>
+                <svg class="animate-bounce w-14 h-14" fill="#4a0404" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="-4 -4 48.00 48.00" xml:space="preserve" stroke="#4a0404" stroke-width="2" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M20,0C8.973,0,0,8.973,0,20c0,11.027,8.973,20,20,20c11.027,0,20-8.973,20-20C40,8.973,31.027,0,20,0z M27.756,23.465 l-6.279,5.332C21.051,29.158,20.525,29.34,20,29.34c-0.526,0-1.052-0.182-1.478-0.543l-6.279-5.332 c-0.959-0.816-1.077-2.256-0.262-3.217c0.815-0.959,2.255-1.078,3.216-0.262l2.521,2.141v-9.186c0-1.26,1.021-2.281,2.282-2.281 c1.26,0,2.281,1.021,2.281,2.281v9.186l2.521-2.141c0.962-0.814,2.401-0.697,3.218,0.262 C28.834,21.209,28.716,22.648,27.756,23.465z"></path> </g> </g></svg>
+            </div>
+        </div>
+    </section>
+
+    <!---------------------------------------------------------------------------------------------------------->
+    <!-- SECTION: RSVP ----------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------->
+    <section id="rsvp" class="py-20 bg-light-beige relative">
+        <div class="absolute -top-px w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><g transform-origin="50%"><path d="M0 0v4s250 96 500 96 500-96 500-96V0H0Z" fill="#FFFFFF"></path></g></svg>
+        </div>
+        <div class="absolute -bottom-px w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200"><g transform="scale(1,-1)" transform-origin="50%"><path d="M0 0v4s250 96 500 96 500-96 500-96V0H0Z" fill="#FFFFFF"></path></g></svg>
+        </div>
+        <div class="container mx-auto max-w-2xl px-4">
+            <div class="bg-white border-2 border-primary shadow-lg p-8 md:p-12"  data-aos="fade-up" data-aos-once="false">
+                <div class="container mx-auto max-w-4xl mb-8">
+                    <img src="assets/icons/svg_1.svg" alt="svg_1" class="w-1/2 md:w-48 mb-4 mx-auto filter-primary">
+                </div>
+                <h2 class="font-['Playfair_Display'] text-3xl text-center mb-8 text-gray-personal">Conferma la tua presenza</h2>
+                <form action="#" id="rsvpForm" class="space-y-6">
+                    <div class="input-default">
+                        <input id="nome" name="nome" type="text" required placeholder="" class="peer" />
+                        <label for="nome">Nome*</label>
+                    </div>
+                    <div class="input-default">
+                        <input id="cognome" name="cognome" type="text" required placeholder="" class="peer" />
+                        <label for="cognome">Cognome*</label>
+                    </div>
+                    <div class="input-default">
+                        <input id="email" name="email" type="email" required placeholder="" class="peer" />
+                        <label for="email">Email*</label>
+                    </div>
+
+                    <!-- Intolleranze Alimentari -->
+                    <div class="pt-4">
+                        <label class="block font-medium text-gray-personal mb-4 text-center">Intolleranze/Diete speciali?</label>
+                        <div class="flex gap-6 mb-4 justify-center">
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="intolleranze" value="si" required 
+                                    class="sr-only peer" 
+                                    onchange="toggleIntolleranze(this)">
+                                <div class="input-radio"
+                                ></div>
+                                <span class="text-gray-personal">Si</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="intolleranze" value="no" required 
+                                    class="sr-only peer" 
+                                    onchange="toggleIntolleranze(this)">
+                                <div class="input-radio"
+                                ></div>
+                                <span class="text-gray-personal">No</span>
+                            </label>
+                        </div>
+
+                        <!-- Campo testo intolleranze -->
+                        <div id="intolleranzeContainer" class="hidden">
+                            <label class="block font-medium text-gray-personal mb-2 text-center">Specifica</label>
+                            <textarea name="intolleranze_testo" 
+                                class="w-full px-4 py-3 border border-primary focus:outline-none focus:border-bordeaux shadow-md"
+                                rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Selezione partecipanti -->
+                    <div class="pt-4">
+                        <label class="block font-medium text-gray-personal mb-4 text-center">Numero di partecipanti*</label>
+                        <select name="numero_partecipanti" id="numeroPartecipanti" required 
+                            class="w-full px-4 py-3 border border-primary focus:outline-none appearance-none select-arrow shadow-md font-medium">
+                            <option value="1">1 (solo io)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
+                    <!-- Container partecipanti aggiuntivi -->
+                    <div id="partecipantiAggiuntivi"></div>
+
+                    <!-- Pulsante Invia -->
+                    <div class="pt-6">
+                        <button type="submit" 
+                            class="w-full bg-primary text-white py-4 uppercase tracking-widest font-medium active:bg-primary-hover transition-colors shadow-lg">
+                            Invia Conferma
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!---------------------------------------------------------------------------------------------------------->
+    <!-- SECTION: Honeymoon ------------------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------------->
+    <section id="honeymoon" class="py-20 px-6 bg-white mx-auto">
+        <div class="container mx-auto max-w-4xl mb-8">
+            <img src="assets/icons/svg_1.svg" alt="svg_1" class="w-1/2 md:w-48 mb-4 mx-auto filter-primary filter-primary" data-aos="fade-up" data-aos-once="false" enable-background="new 0 0 512 512" xml:space="preserve">
+        </div>
+
+        <div class="container mx-auto max-w-2xl">
+            <h2 class="font-['Playfair_Display'] text-3xl capitalize text-center mb-16" data-aos="fade-up" data-aos-once="false">Viaggio di nozze</h2>
+            
+            <!-- Mappa interattiva -->
+            <div class="relative w-full pb-[100%]" data-aos="fade-up" data-aos-once="false">
+                <img src="assets/imgs/Polinesia_2_1.jpg" alt="Mappa Polinesia Francese" id="mappaImage" usemap="#travelmap" class="absolute top-0 left-0 w-full h-full object-contain">
+                <map name="travelmap">
+                    <area shape="circle" coords="920,994,30" href="#" alt="Tahiti" class="tappa" data-original-coords="920,994,44">
+                    <area shape="circle" coords="685,881,30" href="#" alt="Moorea" class="tappa" data-original-coords="685,881,44">
+                    <area shape="circle" coords="80,255,30" href="#" alt="BoraBora" class="tappa" data-original-coords="80,255,44">
+                </map>
+
+                <!-- Indicatori visivi (opzionali) -->
+                <div class="absolute">
+                    <div class="tappa-indicator js-tappa-indicator" data-target="Tahiti">
+                        <span class="tappa-indicator_animate animate-ping"></span>
+                        <span class="tappa-indicator_point"></span>
+                    </div>
+                    <div class="tappa-indicator js-tappa-indicator" data-target="Moorea">
+                        <span class="tappa-indicator_animate animate-ping"></span>
+                        <span class="tappa-indicator_point"></span>
+                    </div>
+                    <div class="tappa-indicator js-tappa-indicator" data-target="BoraBora">
+                        <span class="tappa-indicator_animate animate-ping"></span>
+                        <span class="tappa-indicator_point"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-12 text-center" data-aos="fade-up" data-aos-once="false">
+                <p>Clicca sui punti!</p>
+            </div>
+            
+            
+            <!-- Modal Immagini -->
+            <div id="imageModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+                <div class="bg-white max-w-3xl w-full rounded-lg overflow-hidden relative">
+                  
+                  <!-- Carousel Container -->
+                  <div id="carouselContainer" class="relative h-96">
+                    <!-- Immagini -->
+                    <div id="carouselImages" class="h-full"></div>
+                    
+                    <!-- Freccie Navigazione -->
+                    <button onclick="prevImage()" class="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-black/30 p-2 rounded-full">
+                      &lt;
+                    </button>
+                    <button onclick="nextImage()" class="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-black/30 p-2 rounded-full">
+                      &gt;
+                    </button>
+                  </div>
+              
+                  <!-- Indicatori -->
+                  <div id="carouselIndicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2"></div>
+              
+                  <button onclick="closeModalImg()" class="absolute top-4 right-4 text-white text-2xl">&times;</button>
+                </div>
+            </div>
+            
+            <!-- Descrizione -->
+            <div class="text-center" data-aos="fade-up" data-aos-once="false">
+                <p class="text-lg mb-6">
+                    Il nostro sogno è vivere l'incanto della Polinesia Francese, tra spiagge da sogno e snorkeling tra le barriere coralline. <br>
+                    La prima tappa prevede l'arrivo a Tahiti con la visita del museo e tour dell'isola. <br>
+                    Nella seconda tappa saremo a Moorea per fare un tour delle lagune e vedere anche le balene. <br>
+                    L'ultima tappa di questo viaggio sarà a Bora Bora per visitare Motu, l'isola dell'amore, e scoprire il mondo sottomarino tramite un safari in acqua e snorkeling tra pesci e mante.
                 </p>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!---------------------------------------------------------------------------------------------------------->
+    <!-- SECTION: Wedding gift --------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------->
+    <section id="wedding-gift" class="py-20 px-6 bg-light-beige">
+        <div class="container mx-auto max-w-4xl mb-8">
+            <img src="assets/icons/svg_1.svg" alt="svg_1" class="w-1/2 md:w-48 mb-4 mx-auto filter-primary filter-primary" data-aos="fade-up" data-aos-once="false" enable-background="new 0 0 512 512" xml:space="preserve">
+        </div>
+        <div class="container mx-auto max-w-2xl">
+            <div class="text-center mb-20" data-aos="fade-up" data-aos-once="false">
+                <p class="text-lg mb-6">Per noi la vostra presenza in questo giorno così importante è il regalo più prezioso, ma se voleste contribuire alla realizzazione di questo sogno, non lo dimenticheremo mai.</p>
+            </div>
+            <div class="max-w-2xl mx-auto bg-white border-2 border-primary shadow-lg p-4 md:p-12 text-center pt-20 md:pt-20" data-aos="fade-up" data-aos-once="false">
+                <!-- Immagine Circolare -->
+                <div class="absolute -top-16 left-1/2 -translate-x-1/2">
+                    <img 
+                        src="assets/imgs/2023.07.08_1.jpg" 
+                        alt="Foto contributo"
+                        class="w-32 h-32 rounded-full border-4 border-white shadow-lg object-cover"
+                    >
+                </div>
+                <h3 class="text-xl font-semibold mb-4">Regalo di nozze</h3>
+                <div class="space-y-4">
+                    <p class="text-gray-700">
+                        <span>Intestatari:</span> <br> 
+                        <span class="font-medium">Amadeo Giulia e Esposito Daniele</span>
+                    </p>
+                    <div class="text-center">
+                        <p class="text-gray-700 mb-2">IBAN:</p>
+                        <div class="w-full max-w-[20rem] m-auto">
+                            <div class="relative">
+                                <input id="ibanText" type="text" class="col-span-6 border-primary border rounded-lg block w-full p-2.5 font-mono font-medium text-center" value="IT24L0301503200000004429165" disabled readonly>
+                                <button id="copyIban" class="absolute -end-3 sm:end-2 top-0 sm:top-1/2 -translate-y-1/2 rounded-lg p-1 sm:p-2 bg-white sm:bg-inherit inline-flex items-center justify-center">
+                                    <span id="default-icon">
+                                        <svg class="w-5 h-5 text-gray-600 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                        </svg>
+                                    </span>
+                                    <span id="success-icon" class="hidden">
+                                        <svg class="w-5 h-5 text-green-500 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">Causale: <br> <span class="font-medium">Regalo di nozze - COGNOME NOME</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!---------------------------------------------------------------------------------------------------------->
+    <!-- SECTION: Footer --------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------->
+    <footer class="bg-gold-hover text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="font-['Playfair_Display'] text-4xl mb-8">Non vediamo l'ora di vederti lì!</h2>
+            <h2 class="font-['Playfair_Display'] text-2xl mb-2">Giulia <span class="text-primary">&</span> Daniele</h2>
+            <p class="mb-8">04 Settembre 2025</p>
+            
+            <div class="justify-center space-x-4 mb-8">
+                <h3 class="text-xl mb-4 text-primary">Contatti</h3>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="mailto:giulia.e.daniele.wedding@gmail.com" class="hover:text-primary transition-colors">
+                            giulia.e.daniele.wedding@gmail.com
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:+393385293727" class="hover:text-primary transition-colors">
+                            +39 338 529 3727
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Torna su -->
+            <a href="#home" class="items-center space-x-2 group">
+                <span class="text-primary group-hover:text-white transition-colors">Torna all'inizio</span>
+                <i class="fas fa-arrow-up text-primary group-hover:text-white transition-colors"></i>
+            </a>
+            <p class="text-white/60 text-sm border-t border-primary mx-10 mt-8 pt-4">© 2025 Giulia & Daniele</p>
+        </div>
+    </footer>
+
+    <!---------------------------------------------------------------------------------------------------------->
+    <!-- SCRIPT: Common ---------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inizializza AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: 'ease-in-out'
+        });
+
+        function toggleOverflow() {
+            document.querySelector('body').classList.toggle('overflow-hidden');
+        }
+    </script>
+
+    <!---------------------------------------------------------------------------------------------------------->
+    <!-- SCRIPT: MENU ------------------------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------------->
+    <script>
+        // Script per il menu mobile
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('hamburger-active');
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('opacity-0');
+            mobileMenu.classList.toggle('translate-y-0');
+            toggleOverflow();
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Chiudi il menu mobile dopo il click
+                    if(window.innerWidth < 768) {
+                        hamburger.classList.remove('hamburger-active');
+                        mobileMenu.classList.add('hidden', 'opacity-0');
+                        toggleOverflow();
+                    }
+                }
+            });
+        });
+    </script>
 
     <script>
-        const countDownDate = new Date("September 4, 2025 11:00:00").getTime();
+        let lastScroll = 0;
+        let isScrolling = false;
+
         
-        const updateTimer = () => {
-            const now = new Date().getTime();
-            const distance = countDownDate - now;
+    </script>
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    <script>
+        // Calcola e aggiorna l'altezza della navbar
+        const updateNavHeight = () => {
+            const navHeight = navbar.clientHeight;
+            document.documentElement.style.setProperty('--nav-height', `${navHeight}px`);
+        };
 
-            document.getElementById("days").textContent = days.toString().padStart(2, '0');
-            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+        // Aggiorna al caricamento e al resize
+        window.addEventListener('load', updateNavHeight);
+        window.addEventListener('resize', updateNavHeight);
+        
+        // Aggiorna anche quando il menu mobile si apre
+        hamburger.addEventListener('click', () => {
+            setTimeout(updateNavHeight, 50);
+        });
+    </script>
 
-            if (distance < 0) clearInterval(timerInterval);
+    <script>
+        const homeBg = document.getElementById('home-bg');
+        window.addEventListener('scroll', () => {
+            let value = window.scrollY;
+            //homeBg.style.marginTop = value * 0.25 + 'px';
+        });
+
+        const homeText = document.getElementById('home-text');
+        window.addEventListener('scroll', () => {
+            let value = window.scrollY;
+            //homeText.style.marginTop = value * 1.5 + 'px';
+        });
+    </script>
+
+    <!---------------------------------------------------------------------------------------------------------->
+    <!-- SCRIPT: Header ---------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('navbar');
+
+            const handleScroll = () => {
+                if (mobileMenu.classList.contains('hidden')) {
+                    const currentScroll = window.pageYOffset;
+                    
+                    if (currentScroll > lastScroll && currentScroll > 100) {
+                        // Scrolling down
+                        navbar.classList.add('-translate-y-full');
+                        navbar.classList.remove('shadow-sm');
+                        mobileMenu.classList.add('hidden');
+                    } else if (currentScroll < lastScroll) {
+                        // Scrolling up
+                        navbar.classList.remove('-translate-y-full');
+                        navbar.classList.add('shadow-sm');
+                    }
+                    
+                    lastScroll = currentScroll;
+                }
+                isScrolling = false;
+            };
+
+            // Throttle lo scroll event
+            window.addEventListener('scroll', () => {
+                if (!isScrolling) {
+                    window.requestAnimationFrame(handleScroll);
+                    isScrolling = true;
+                }
+            });
+
+            // Resetta la posizione quando si raggiunge il top
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset === 0) {
+                    navbar.classList.remove('-translate-y-full');
+                    navbar.classList.add('shadow-sm');
+                }
+            });
+
+            const homeSection = document.getElementById('home');
+            const navbarTexts = document.querySelectorAll('.js-navbar-text');
+            const navbarIcons = document.querySelectorAll('.js-navbar-icon');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Home section è visibile
+                        navbar.classList.add('bg-transparent', 'backdrop-blur-lg');
+                        navbar.classList.remove('bg-white/70', 'backdrop-blur-sm');
+
+                        navbarTexts.forEach(el => el.classList.add('text-white'));
+                        navbarIcons.forEach(el => el.classList.add('bg-white'));
+                        
+                        // Rimuovi i colori originali
+                        navbarTexts.forEach(el => el.classList.remove('text-primary'));
+                        navbarIcons.forEach(el => el.classList.remove('bg-gray-personal'));
+                    } else {
+                        // Home section non è più visibile
+                        navbar.classList.remove('bg-transparent', 'backdrop-blur-none');
+                        navbar.classList.add('bg-white/70', 'backdrop-blur-sm');
+
+                        navbarTexts.forEach(el => el.classList.remove('text-white'));
+                        navbarIcons.forEach(el => el.classList.remove('bg-white'));
+                        
+                        // Ripristina i colori originali
+                        navbarIcons.forEach(el => el.classList.add('bg-gray-personal'));
+                    }
+                });
+            }, { threshold: 0.05 }); // Trigger quando il 10% della sezione è visibile
+            
+            observer.observe(homeSection);
+        });
+    </script>
+
+    <!---------------------------------------------------------------------------------------------------------->
+    <!-- SCRIPT: RSVP ------------------------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------------->
+    <script>
+        const partecipantiContainer = document.getElementById('partecipantiAggiuntivi');
+        const selectPartecipanti = document.getElementById('numeroPartecipanti');
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxMPi8mpFYJnmcglMhaQN7hBxkdZ_4UTFJYNXk6x-FujE2ReaWZrB0oSGfvVhnziuew/exec';
+        
+        // Mostra il campo delle intolleranze
+        function toggleIntolleranze(radio) {
+            const container = document.getElementById('intolleranzeContainer');
+            const textarea = container.querySelector('textarea');
+            
+            if(radio.value === 'si') {
+                container.classList.remove('hidden');
+                textarea.setAttribute('required', '');
+            } else {
+                container.classList.add('hidden');
+                textarea.removeAttribute('required');
+                textarea.value = '';
+            }
         }
 
-        const timerInterval = setInterval(updateTimer, 1000);
-        updateTimer();
+        function toggleIntolleranzePartecipante(radio, index) {
+            const container = document.getElementById(`intolleranze_partecipante_${index}`);
+            const textarea = container.querySelector('textarea');
+            
+            if(radio.value === 'si') {
+                container.classList.remove('hidden');
+                textarea.setAttribute('required', '');
+            } else {
+                container.classList.add('hidden');
+                textarea.removeAttribute('required');
+                textarea.value = '';
+            }
+        }
+
+        // Genera campi dinamici
+        function generaCampiPartecipanti(num) {
+            partecipantiContainer.innerHTML = '';
+            
+            for(let i = 1; i < num; i++) {
+                const div = document.createElement('div');
+                div.className = 'space-y-6 border-t pt-4';
+                div.innerHTML = `
+                    <h3 class="text-lg font-semibold">Partecipante ${i + 1}</h3>
+                    <div class="input-default">
+                        <input id="nome_${i}" name="nome_${i}" type="text" required placeholder="" class="peer" />
+                        <label for="nome_${i}">Nome*</label>
+                    </div>
+                    <div class="input-default">
+                        <input id="cognome_${i}" name="cognome_${i}" type="text" required placeholder="" class="peer" />
+                        <label for="cognome_${i}">Cognome*</label>
+                    </div>
+
+                    <!-- Intolleranze Alimentari ${i + 1} -->
+                    <div class="pt-4">
+                        <label class="block font-medium text-gray-personal mb-4 text-center">Intolleranze/Diete speciali?</label>
+                        <div class="flex gap-6 mb-4 justify-center">
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="intolleranze_${i}" value="si" required 
+                                    class="sr-only peer" 
+                                    onchange="toggleIntolleranzePartecipante(this, ${i})">
+                                <div class="input-radio"
+                                ></div>
+                                <span class="text-gray-personal">Si</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="intolleranze_${i}" value="no" required 
+                                    class="sr-only peer" 
+                                    onchange="toggleIntolleranzePartecipante(this, ${i})">
+                                <div class="input-radio"
+                                ></div>
+                                <span class="text-gray-personal">No</span>
+                            </label>
+                        </div>
+
+                        <!-- Campo testo intolleranze -->
+                        <div id="intolleranze_partecipante_${i}" class="hidden">
+                            <label class="block font-medium text-gray-personal mb-2 text-center">Specifica</label>
+                            <textarea name="intolleranze_testo_${i}" 
+                                class="w-full px-4 py-3 border border-primary focus:outline-none focus:border-bordeaux shadow-md mb-4"
+                                rows="3"></textarea>
+                        </div>
+                    </div>
+                `;
+                partecipantiContainer.appendChild(div);
+            }
+        }
+        
+        // Listener cambio selezione
+        selectPartecipanti.addEventListener('change', (e) => {
+            generaCampiPartecipanti(parseInt(e.target.value));
+        });
+        
+        // Invio form
+        document.getElementById('rsvpForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                nome: e.target.nome.value,
+                cognome: e.target.cognome.value,
+                email: e.target.email.value,
+                numero_partecipanti: parseInt(e.target.numero_partecipanti.value),
+                intolleranze: e.target.intolleranze.value,
+                intolleranze_testo: e.target.intolleranze_testo?.value || ''
+            };
+
+            // Aggiungi partecipanti e relative intolleranze
+            const numPartecipanti = formData.numero_partecipanti;
+            for(let i = 1; i < numPartecipanti; i++) {
+                formData[`nome_${i}`] = e.target[`nome_${i}`].value;
+                formData[`cognome_${i}`] = e.target[`cognome_${i}`].value;
+                formData[`intolleranze_${i}`] = e.target.elements[`intolleranze_${i}`].value;
+                formData[`intolleranze_testo_${i}`] = e.target[`intolleranze_testo_${i}`]?.value || '';
+            }
+
+            try {
+                fetch(scriptURL, { method: 'POST', body: JSON.stringify(formData)})
+                    .then((response) => {
+                        if (response.ok) {
+                            alert('Grazie per la tua conferma!');
+                            e.target.reset();
+                            partecipantiContainer.innerHTML = '';
+                            document.getElementById('intolleranzeContainer').classList.add('hidden');
+                        } else {
+                            alert('Si è verificato un errore. Riprova più tardi.');
+                        }
+                    })
+                    .catch((error) => {
+                        console.log("CATCH ERROR: " + error);
+                        alert('Si è verificato un errore. Riprova più tardi.');
+                    })
+            } catch(error) {
+                alert('Si è verificato un errore. Riprova più tardi.');
+            }
+        });
+    </script>
+
+    <!---------------------------------------------------------------------------------------------------------->
+    <!-- SCRIPT: Honeymoon ------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const image = document.getElementById('mappaImage');
+            const areas = document.querySelectorAll('area');
+            const originalWidth = 1200;
+            const originalHeight = 1200;
+
+            function updateCoords() {
+                const scaleX = image.offsetWidth / originalWidth;
+                const scaleY = image.offsetHeight / originalHeight;
+
+                areas.forEach(area => {
+                    const [x, y, r] = area.dataset.originalCoords.split(',').map(Number);
+                    const scaledX = x * scaleX;
+                    const scaledY = y * scaleY;
+                    const scaledR = r * Math.min(scaleX, scaleY);
+                    
+                    area.coords = `${scaledX},${scaledY},${scaledR}`;
+                });
+
+                // Aggiorna indicatori visivi (opzionale)
+                document.querySelectorAll('.js-tappa-indicator').forEach(indicator => {
+                    const target = indicator.dataset.target;
+                    const area = Array.from(areas).find(a => a.alt === target);
+                    const [x, y, r] = area.coords.split(',').map(Number);
+                    
+                    Object.assign(indicator.style, {
+                        width: `${r*2}px`,
+                        height: `${r*2}px`,
+                        left: `${x - r}px`,
+                        top: `${y - r}px`,
+                    });
+                });
+            }
+
+            // Aggiorna al resize e al caricamento
+            window.addEventListener('resize', updateCoords);
+            updateCoords();
+
+            // Aggiungi hover effect per mobile
+            areas.forEach(area => {
+                area.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModalImg.call(this);
+                });
+            });
+        });
+
+        let currentImages = [];
+        let currentIndex = 0;
+        // Mappa immagini per ogni destinazione
+        const destinationImages = {
+            'Tahiti': [
+                'le-tahiti-by-pearl-resorts_1.jpg',
+                'le-tahiti-by-pearl-resorts_2.jpg',
+                'le-tahiti-by-pearl-resorts_3.jpg'
+            ],
+            'Moorea': [
+                'Moorea_1.jpg',
+                'Moorea_2.jpg',
+                'Moorea_3.jpg',
+                'Moorea_4.jpg',
+                'Moorea_5.webp'
+            ],
+            'BoraBora': [
+                'BoraBora_1.jpg',
+                'BoraBora_2.jpg',
+                'BoraBora_3.jpg',
+                'BoraBora_4.jpg'
+            ]
+        };
+
+        function openModalImg() {
+        
+            const destination = event.target.alt; // Ottieni il nome dalla proprietà alt
+            currentImages = destinationImages[destination] || [];
+            currentIndex = 0;
+        
+            // Resetta carousel
+            const container = document.getElementById('carouselImages');
+            const indicators = document.getElementById('carouselIndicators');
+            container.innerHTML = '';
+            indicators.innerHTML = '';
+
+            // Aggiungi immagini
+            currentImages.forEach((img, index) => {
+                const imgDiv = document.createElement('div');
+                imgDiv.className = `absolute inset-0 h-full w-full ${index === 0 ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`;
+                imgDiv.innerHTML = `<img src="assets/imgs/${img}" class="w-full h-full object-cover" alt="Gallery image">`;
+                container.appendChild(imgDiv);
+
+                // Aggiungi indicatori
+                const dot = document.createElement('button');
+                dot.className = `w-3 h-3 rounded-full ${index === 0 ? 'bg-white' : 'bg-gray-400'}`;
+                dot.onclick = () => goToImage(index);
+                indicators.appendChild(dot);
+            });
+
+            document.getElementById('imageModal').classList.remove('hidden');
+            toggleOverflow();
+        }
+
+        function updateActiveImage() {
+            const images = document.querySelectorAll('#carouselImages > div');
+            const dots = document.querySelectorAll('#carouselIndicators button');
+            
+            images.forEach((img, i) => {
+                img.classList.toggle('opacity-100', i === currentIndex);
+                img.classList.toggle('opacity-0', i !== currentIndex);
+            });
+            
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('bg-white', i === currentIndex);
+                dot.classList.toggle('bg-gray-400', i !== currentIndex);
+            });
+        }
+
+        function prevImage() {
+            currentIndex = currentIndex > 0 ? currentIndex - 1 : currentImages.length - 1;
+            updateActiveImage();
+        }
+
+        function nextImage() {
+            currentIndex = currentIndex < currentImages.length - 1 ? currentIndex + 1 : 0;
+            updateActiveImage();
+        }
+
+        function goToImage(index) {
+            currentIndex = index;
+            updateActiveImage();
+        }
+
+        function closeModalImg() {
+            document.getElementById('imageModal').classList.add('hidden');
+            currentImages = [];
+            currentIndex = 0;
+            toggleOverflow();
+        }
+        
+        // Chiudi modal cliccando fuori dall'immagine
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModalImg();
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const copyButton = document.getElementById('copyIban');
+            const ibanText = document.getElementById('ibanText');
+            const copyIcon = copyButton.querySelector('#default-icon');
+            const checkIcon = copyButton.querySelector('#success-icon');
+
+            copyButton.addEventListener('click', async () => {
+                try {
+                // Rimuovi spazi dall'IBAN prima di copiare
+                const iban = ibanText.value.replace(/\s/g, '');
+                await navigator.clipboard.writeText(iban);
+                
+                // Feedback visivo
+                copyIcon.classList.add('hidden');
+                checkIcon.classList.remove('hidden');
+                
+                // Reimposta dopo 2 secondi
+                setTimeout(() => {
+                    copyIcon.classList.remove('hidden');
+                    checkIcon.classList.add('hidden');
+                }, 2000);
+                
+                } catch (err) {
+                alert('Errore durante la copia. Per favore copia manualmente.');
+                }
+            });
+        });
     </script>
 </body>
 </html>

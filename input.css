@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@layer base {
+    :root {
+        --nav-height: theme(spacing.16); /* 4rem = 64px */
+    }
+
+    html {
+        @apply scroll-smooth;
+    }
+}
+
+@layer components {
+
+    /*--------- Common ---------*/
+    /* https://codepen.io/sosuke/pen/Pjoqqp - 4.1 */
+    .filter-primary {
+        filter: brightness(0) saturate(100%) invert(12%) sepia(74%) saturate(859%) hue-rotate(322deg) brightness(102%) contrast(120%);  
+    }
+
+    /*--------- Menu mobile ---------*/
+    #navbar {
+        transition: background-color 0.5s ease, backdrop-filter 0.5s ease;
+        transition-property: transform, color, background-color, border-color, text-decoration-color, fill, stroke;
+        transition-timing-function: ease;
+        transition-duration: 0.5s;
+    }
+
+    /* Mobile */
+    .hamburger-line {
+        @apply transition-all duration-500 ease-in-out;
+    }
+
+    .hamburger-active .hamburger-line:nth-child(1) {
+        @apply rotate-45 translate-y-[8px];
+    }
+
+    .hamburger-active .hamburger-line:nth-child(2) {
+        @apply opacity-0;
+    }
+
+    .hamburger-active .hamburger-line:nth-child(3) {
+        @apply -rotate-45 -translate-y-[8px];
+    }
+
+    #mobile-menu {
+        height: calc(100vh - var(--nav-height));
+    }
+
+
+    /*--------- Timeline ---------*/
+    .polaroid {
+        @apply inline-block p-4 bg-white drop-shadow-lg border border-primary w-full;
+        @apply hover:rotate-0 hover:scale-105 hover:shadow-xl transition-all duration-300;
+        @apply md:w-auto;
+
+        .polaroid-container {
+            @apply border border-gray-200 mb-3 pb-[100%] relative w-full;
+            @apply md:w-64;
+        }
+    
+        .polaroid-img {
+            @apply absolute inset-0 w-full h-full object-cover filter sepia-[25%] contrast-125;
+        }
+    
+        .polaroid-text {
+            @apply text-xl font-bold text-center font-['Indie_Flower'] text-gray-700 mt-2;
+        }
+    }
+
+    
+
+    /*--------- RSVP ---------*/
+    .input-default {
+        @apply h-12 relative flex;
+        
+        input {
+            @apply w-full bg-transparent outline-none px-4 py-3 text-base bg-white border border-primary shadow-md;
+            @apply invalid:border-red-500 invalid:focus:shadow-red-500/50;
+            @apply invalid:placeholder-shown:border-primary focus:invalid:placeholder-shown:shadow-primary/50;
+            @apply focus:shadow-lg focus:shadow-primary/50 focus:-translate-y-1 focus:-translate-x-1 transition duration-150 ease-in-out;
+        }
+
+        label {
+            @apply absolute top-0 left-3 text-sm px-2 font-medium translate-y-[-50%] duration-150 bg-white;
+            @apply peer-invalid:text-red-500;
+            @apply peer-invalid:peer-placeholder-shown:top-1/2 peer-invalid:peer-placeholder-shown:left-4 peer-invalid:peer-placeholder-shown:text-base peer-invalid:peer-placeholder-shown:text-gray-personal;
+            @apply peer-focus:peer-placeholder-shown:top-0 peer-focus:peer-placeholder-shown:left-3 peer-focus:peer-placeholder-shown:text-sm peer-focus:peer-placeholder-shown:text-primary peer-focus:translate-y-[-65%] peer-focus:translate-x-[-5%];
+            @apply peer-valid:text-primary;
+        }
+    }
+
+    .input-radio {
+        @apply w-5 h-5 bg-transparent border border-primary rounded-full transition duration-300 ease-in-out;
+        @apply peer-checked:bg-primary peer-hover:shadow-lg peer-hover:shadow-primary/50 peer-checked:shadow-lg peer-checked:shadow-primary/50;
+    }
+
+    .select-arrow {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%234a0404' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+        @apply bg-no-repeat;
+        @apply bg-[right_0.5rem_center];
+        @apply bg-[length:1.5em_1.5em];
+    }
+
+    /*--------- Honeymoon ---------*/
+    .tappa-indicator {
+        @apply absolute flex h-3 w-3 justify-center pointer-events-none;
+        @apply sm:h-5 sm:w-5;
+
+        span {
+            @apply inline-flex rounded-full bg-primary self-center;
+        }
+
+        .tappa-indicator_animate {
+            @apply absolute h-4 w-4;
+            @apply sm:h-6 sm:w-6; 
+        }
+    
+        .tappa-indicator_point {
+            @apply relative h-3 w-3;
+            @apply sm:h-5 sm:w-5;
+        }
+    }
+
+    area {
+        cursor: pointer;
+        outline: none;
+    }
+        
+    /* Debug mode (opzionale) */
+    area:focus-visible {
+        outline: 2px solid red;
+    }
+
+    #carouselImages > div {
+        transition: opacity 300ms ease-in-out;
+    }
+
+    .copy-icon {
+        transition: opacity 0.2s ease;
+    }
+    .check-icon {
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .check-icon:not(.hidden) {
+        animation: bounce 0.5s;
+    }
+    
+    @keyframes bounce {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+
+    /*--------- Footer ---------*/
+    
+    /* Social icons */
+    .footer-social-icon {
+        @apply w-6 h-6 flex items-center justify-center transition-all duration-300;
+    }
+
+    /* Link hover effect */
+    .footer-link {
+        @apply relative inline-block;
+        
+        &::after {
+            @apply content-[''] absolute bottom-[-2px] left-0 w-0 h-px bg-primary transition-all duration-300 ease-in-out;
+        }
+        
+        &:hover::after {
+            @apply w-full;
+        }
+    }
+
+    /* Back to top arrow */
+    .back-to-top-arrow {
+        @apply transition-transform duration-300 ease-in-out;
+        
+        .group:hover & {
+            @apply -translate-y-[3px];
+        }
+    }
+}
