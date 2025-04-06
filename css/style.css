@@ -1643,8 +1643,8 @@ area:focus-visible {
   background-attachment: scroll;
 }
 
-.bg-top {
-  background-position: top;
+.bg-center {
+  background-position: center;
 }
 
 .bg-no-repeat {
