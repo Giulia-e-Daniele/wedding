@@ -335,6 +335,7 @@
                     <img src="assets/icons/svg_1.svg" alt="svg_1" class="w-1/2 md:w-48 mb-4 mx-auto filter-primary">
                 </div>
                 <h2 class="font-['Playfair_Display'] text-3xl text-center mb-8 text-gray-personal">Conferma la tua presenza</h2>
+                <p class="font-['Playfair_Display'] text-3xl text-center mb-8 text-gray-personal"></p>
                 <form action="#" id="rsvpForm" class="space-y-6">
                     <div class="input-default">
                         <input id="nome" name="nome" type="text" required placeholder="..." class="peer input-default_input placeholder-transparent" />
@@ -399,7 +400,7 @@
                     <!-- Pulsante Invia -->
                     <div class="pt-6">
                         <button type="submit" 
-                            class="w-full bg-primary text-white py-4 uppercase tracking-widest font-medium active:bg-primary-hover transition-colors shadow-lg">
+                            class="w-full bg-primary text-white py-4 uppercase tracking-widest font-medium active:bg-primary-hover transition-colors shadow-lg disabled:bg-primary-hover disabled:opacity-50 disabled:cursor-not-allowed">
                             Invia Conferma
                         </button>
                     </div>
@@ -840,6 +841,9 @@
         document.getElementById('rsvpForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
+            const submitButton = e.target.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+
             const formData = {
                 nome: e.target.nome.value,
                 cognome: e.target.cognome.value,
@@ -869,13 +873,16 @@
                         } else {
                             alert('Si è verificato un errore. Riprova più tardi.');
                         }
+                        submitButton.disabled = false;
                     })
                     .catch((error) => {
                         console.log("CATCH ERROR: " + error);
                         alert('Si è verificato un errore. Riprova più tardi.');
+                        submitButton.disabled = false;
                     })
             } catch(error) {
                 alert('Si è verificato un errore. Riprova più tardi.');
+                submitButton.disabled = false;
             }
         });
     </script>
