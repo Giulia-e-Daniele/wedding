@@ -1940,12 +1940,20 @@ area:focus-visible {
     top: 50%;
   }
 
+  .sm\:max-w-\[22rem\] {
+    max-width: 22rem;
+  }
+
   .sm\:bg-inherit {
     background-color: inherit;
   }
 
   .sm\:p-2 {
     padding: 0.5rem;
+  }
+
+  .sm\:pr-10 {
+    padding-right: 2.5rem;
   }
 }
 
