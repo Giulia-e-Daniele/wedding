@@ -646,19 +646,13 @@ html {
 
 /*--------- Header ---------*/
 
-#home-bg {
-  background-image: url('./assets/imgs/2024.09.15_5.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-}
-
-@media (min-width: 1024px) {
-  #home-bg {
-    background-attachment: fixed;
-  }
-}
+/* #home-bg {
+        background-image: url('./assets/imgs/2024.09.15_5.jpg'); 
+        background-position: center; 
+        background-size: cover; 
+        background-repeat: no-repeat;
+        @apply bg-scroll lg:bg-fixed;
+    } */
 
 /*--------- Timeline ---------*/
 
