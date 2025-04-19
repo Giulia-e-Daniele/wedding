@@ -336,32 +336,16 @@
                 </div>
                 <h2 class="font-['Playfair_Display'] text-3xl text-center mb-8 text-gray-personal">Conferma la tua presenza</h2>
                 <form action="#" id="rsvpForm" class="space-y-6">
-                    <!-- w-full bg-transparent outline-none px-4 py-3 text-base bg-white border border-primary shadow-md;
-                    invalid:border-red-500 invalid:focus:shadow-red-500/50;
-                    invalid:placeholder-shown:border-primary focus:invalid:placeholder-shown:shadow-primary/50;
-                    focus:shadow-lg focus:shadow-primary/50 focus:-translate-y-1 focus:-translate-x-1 transition duration-150 ease-in-out; -->
                     <div class="input-default">
-                        <input id="nome" name="nome" type="text" required placeholder="" 
-                            class="peer w-full bg-transparent outline-none px-4 py-3 text-base bg-white border border-primary shadow-md
-                                invalid:border-red-500 invalid:focus:shadow-red-500/50
-                                invalid:placeholder-shown:border-primary focus:invalid:placeholder-shown:shadow-primary/50
-                                focus:shadow-lg focus:shadow-primary/50 focus:-translate-y-1 focus:-translate-x-1 transition duration-150 ease-in-out
-                            " />
-                        <label for="nome"
-                            class="absolute top-0 left-3 text-sm px-2 font-medium translate-y-[-50%] duration-150 bg-white
-                                peer-invalid:text-red-500
-                                peer-invalid:peer-placeholder-shown:top-1/2 peer-invalid:peer-placeholder-shown:left-4 peer-invalid:peer-placeholder-shown:text-base peer-invalid:peer-placeholder-shown:text-gray-personal
-                                peer-focus:peer-placeholder-shown:top-0 peer-focus:peer-placeholder-shown:left-3 peer-focus:peer-placeholder-shown:text-sm peer-focus:peer-placeholder-shown:text-primary peer-focus:translate-y-[-65%] peer-focus:translate-x-[-5%]
-                                peer-valid:text-primary
-                        ">
-                            Nome*</label>
+                        <input id="nome" name="nome" type="text" required placeholder="" class="peer input-default_input" />
+                        <label for="nome" class="input-default_label">Nome*</label>
                     </div>
                     <div class="input-default">
-                        <input id="cognome" name="cognome" type="text" required placeholder="" class="peer" />
-                        <label for="cognome">Cognome*</label>
+                        <input id="cognome" name="cognome" type="text" required placeholder="" class="peer input-default_input" />
+                        <label for="cognome" class="input-default_label">Cognome*</label>
                     </div>
                     <div class="input-default">
-                        <input id="email" name="email" type="email" required placeholder="" class="peer" />
+                        <input id="email" name="email" type="email" required placeholder="" class="peer input-default_input" />
                         <label for="email">Email*</label>
                     </div>
 
@@ -804,12 +788,12 @@
                 div.innerHTML = `
                     <h3 class="text-lg font-semibold">Partecipante ${i + 1}</h3>
                     <div class="input-default">
-                        <input id="nome_${i}" name="nome_${i}" type="text" required placeholder="" class="peer" />
-                        <label for="nome_${i}">Nome*</label>
+                        <input id="nome_${i}" name="nome_${i}" type="text" required placeholder="" class="peer input-default_input" />
+                        <label for="nome_${i}" class="input-default_label">Nome*</label>
                     </div>
                     <div class="input-default">
-                        <input id="cognome_${i}" name="cognome_${i}" type="text" required placeholder="" class="peer" />
-                        <label for="cognome_${i}">Cognome*</label>
+                        <input id="cognome_${i}" name="cognome_${i}" type="text" required placeholder="" class="peer input-default_input" />
+                        <label for="cognome_${i}" class="input-default_label">Cognome*</label>
                     </div>
 
                     <!-- Intolleranze Alimentari ${i + 1} -->
