@@ -772,6 +772,9 @@ html {
     width: 100%;
   }
   .input-default_input {
+    border-radius: 0px;
+  }
+  .input-default_input {
     border-width: 1px;
   }
   .input-default_input {
