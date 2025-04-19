@@ -81,7 +81,7 @@
     <!-- SECTION: Header --------------------------------------------------------------------------------------->
     <!---------------------------------------------------------------------------------------------------------->
     <section id="home" class="relative h-[120vh] flex items-center justify-center">
-        <div id="home-bg" class="absolute inset-0 bg-center bg-no-repeat bg-cover bg-scroll lg:bg-fixed" style="background-image: url('./assets/imgs/2024.09.15_5.jpg')">
+        <div id="home-bg" class="absolute inset-0 bg-center bg-no-repeat bg-cover bg-scroll" style="background-image: url('./assets/imgs/2024.09.15_5.jpg')"> <!-- lg:bg-fixed -->
             <div class="absolute inset-0 bg-black/50"></div>
         </div>
         
@@ -341,8 +341,20 @@
                     invalid:placeholder-shown:border-primary focus:invalid:placeholder-shown:shadow-primary/50;
                     focus:shadow-lg focus:shadow-primary/50 focus:-translate-y-1 focus:-translate-x-1 transition duration-150 ease-in-out; -->
                     <div class="input-default">
-                        <input id="nome" name="nome" type="text" required placeholder="" class="peer" />
-                        <label for="nome">Nome*</label>
+                        <input id="nome" name="nome" type="text" required placeholder="" 
+                            class="peer w-full bg-transparent outline-none px-4 py-3 text-base bg-white border border-primary shadow-md
+                                invalid:border-red-500 invalid:focus:shadow-red-500/50
+                                invalid:placeholder-shown:border-primary focus:invalid:placeholder-shown:shadow-primary/50
+                                focus:shadow-lg focus:shadow-primary/50 focus:-translate-y-1 focus:-translate-x-1 transition duration-150 ease-in-out
+                            " />
+                        <label for="nome"
+                            class="absolute top-0 left-3 text-sm px-2 font-medium translate-y-[-50%] duration-150 bg-white
+                                peer-invalid:text-red-500
+                                peer-invalid:peer-placeholder-shown:top-1/2 peer-invalid:peer-placeholder-shown:left-4 peer-invalid:peer-placeholder-shown:text-base peer-invalid:peer-placeholder-shown:text-gray-personal
+                                peer-focus:peer-placeholder-shown:top-0 peer-focus:peer-placeholder-shown:left-3 peer-focus:peer-placeholder-shown:text-sm peer-focus:peer-placeholder-shown:text-primary peer-focus:translate-y-[-65%] peer-focus:translate-x-[-5%]
+                                peer-valid:text-primary
+                        ">
+                            Nome*</label>
                     </div>
                     <div class="input-default">
                         <input id="cognome" name="cognome" type="text" required placeholder="" class="peer" />
